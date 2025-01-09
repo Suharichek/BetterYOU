@@ -209,7 +209,7 @@
         }
       }
     },
-    "23:00" : {
+    "0" : {
 
     },
     "Amount of kcal today" : {
@@ -260,6 +260,16 @@
     },
     "Better Work 🏋🏽‍♂️" : {
 
+    },
+    "Carbohydrates intake: %lld" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Углеводов принято: %lld"
+          }
+        }
+      }
     },
     "Carbohydrates:" : {
       "localizations" : {
@@ -321,12 +331,32 @@
         }
       }
     },
+    "Done" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сделано"
+          }
+        }
+      }
+    },
     "enter amount" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "введите число"
+          }
+        }
+      }
+    },
+    "Fats intake: %lld" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жиров принято: %lld"
           }
         }
       }
@@ -501,6 +531,16 @@
         }
       }
     },
+    "Proteins intake: %lld" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Протеина принято: %lld"
+          }
+        }
+      }
+    },
     "Proteins:" : {
       "localizations" : {
         "ru" : {
@@ -551,12 +591,32 @@
         }
       }
     },
-    "Statistics" : {
+    "Statistics 📊" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Статистика"
+            "value" : "Статистика 📊"
+          }
+        }
+      }
+    },
+    "steps" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "шаги"
+          }
+        }
+      }
+    },
+    "Steps: " : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шаги: "
           }
         }
       }
@@ -785,64 +845,22 @@
         }
       }
     },
-    "Your goal for today is %@ kcal" : {
+    "Your goal for today is %lld kcal" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ваша цель на сегодня %@ ккал"
+            "value" : "Ваша цель на сегодня %lld ккал"
           }
         }
       }
     },
-    "Your goal for week is %lld training" : {
+    "Your goal for week is %@ training" : {
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Your goal for week is %lld training"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Your goal for week is %lld trainings"
-                }
-              }
-            }
-          }
-        },
         "ru" : {
-          "variations" : {
-            "plural" : {
-              "few" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ваша цель на неделю %lld тренировки"
-                }
-              },
-              "many" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ваша цель на неделю %lld тренировок"
-                }
-              },
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ваша цель на неделю %lld тренировка"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ваша цель на неделю %lld тренировок"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваша цель на неделю %@ тренировка"
           }
         }
       }
@@ -867,12 +885,12 @@
         }
       }
     },
-    "Your height: %@ cm" : {
+    "Your height: %lld cm" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ваш рост: %@ см"
+            "value" : "Вас рост: %lld см"
           }
         }
       }
@@ -897,12 +915,12 @@
         }
       }
     },
-    "Your weight: %@ kg" : {
+    "Your weight: %lld kg" : {
       "localizations" : {
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ваш вес: %@ кг"
+            "value" : "Ваш вес: %lld кг"
           }
         }
       }

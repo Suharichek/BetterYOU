@@ -14,13 +14,16 @@ struct SettingsView: View {
         case lastName
     }
     
-    @State  var firstName = "Максим"
-    @State  var lastName = "Вольнов"
-    @State private var weight = 70
-    @State private var height = 170
+    @State var firstName = "Максим"
+    @State var lastName = "Вольнов"
+    
+    @State var weight = 70
+    @State var height = 170
+    
     @State var selectedUnitF = 0
     @State var selectedUnitW = 0
     @State var selectedUnitH = 0
+    
     @FocusState private var focusedField: Field?
     
     

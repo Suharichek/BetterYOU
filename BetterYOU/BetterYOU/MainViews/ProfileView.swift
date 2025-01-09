@@ -9,74 +9,76 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    enum Field {
-        case firstName
-        case lastName
-    }
-    
-    @State  var firstName = "Максим"
-    @State  var lastName = "Вольнов"
-    @State private var weight = 70
-    @State private var height = 170
-    @State var selectedUnitF = 0
-    @State var selectedUnitW = 0
-    @State var selectedUnitH = 0
-    @State var amountFood = ""
-    @State var amountTrain = ""
-    @State var amountSleep = ""
-    @FocusState private var focusedField: Field?
-    
+    @State var goalFood = "2000"
+    @State var goalTrain = "3"
+    @State var goalStep = "10000"
+    @State var goalSleep = "8"
+    @FocusState var isFocused: Bool
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                   // VStack {
-                        Text("Name: \(firstName)")
-                            //.padding(.bottom)
-                        
-                        Text("Surname: \(lastName)")
-                            //.padding(.bottom)
-                        
-                        Text("Your weight: \(weight.formatted()) kg")
-                            //.padding(.bottom)
-                        
-                        Text("Your height: \(height.formatted()) cm")
-                   // }
+                    Image("profilePhoto")
+                        .resizable()
+                        .clipShape(Circle())
+                        .frame(width: 130, height: 130, alignment: .center)
+                        .padding(.leading, 96)
+                }
+                .listRowBackground(Color.clear)
+                .listSectionSpacing(-10)
+                
+                Section {
+                    Text("Name: \(SettingsView().firstName)")
+                        .multilineTextAlignment(.trailing)
+                    
+                    Text("Surname: \(SettingsView().lastName)")
+                        .multilineTextAlignment(.trailing)
+                    
+                    Text("Your weight: \(SettingsView().weight) kg")
+                    
+                    Text("Your height: \(SettingsView().height) cm")
+                    
                 }header: {
                     Text("Information about yourself")
                         .foregroundStyle(Color(.text))
                 }
                 
                 Section {
-                    VStack {
-                        HStack {
-                            Text("Food: ")
-                            TextField("enter amount", text: $amountFood)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.numberPad)
-                            Text("kcal")
-                            //Stepper("\(weight.formatted()) kg", value: $weight, in: 50...150, step: 5)
-                        }
-                        .padding(.bottom)
-                        HStack {
-                            Text("Trainings: ")
-                            TextField("enter amount", text: $amountTrain)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.numberPad)
-                            Text("times")
-                            
-                            //Stepper("\(height.formatted()) cm", value: $height, in: 150...250, step: 5)
-                        }
-                        .padding(.bottom)
-                        HStack {
-                            Text("Sleep: ")
-                            TextField("enter amount", text: $amountSleep)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.numberPad)
-                            Text("hours")
-                            //Stepper("\(weight.formatted()) kg", value: $weight, in: 50...150, step: 5)
-                        }
+                    HStack {
+                        Text("Food: ")
+                        TextField("enter amount", text: $goalFood)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                            .focused($isFocused)
+                        Text("kcal")
+                    }
+                    
+                    HStack {
+                        Text("Trainings: ")
+                        TextField("enter amount", text: $goalTrain)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                            .focused($isFocused)
+                        Text("times")
+                    }
+                    
+                    HStack {
+                        Text("Steps: ")
+                        TextField("enter amount", text: $goalStep)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                            .focused($isFocused)
+                        Text("steps")
+                    }
+                    
+                    HStack {
+                        Text("Sleep: ")
+                        TextField("enter amount", text: $goalSleep)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                            .focused($isFocused)
+                        Text("hours")
                     }
                 }header: {
                     Text("Your goals")
@@ -93,10 +95,18 @@ struct ProfileView: View {
                         Image(systemName: "slider.horizontal.3")
                     }
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    
+                    Button("Done") {
+                        isFocused.toggle()
+                    }
+                }
             }
         }
     }
 }
+
 
 #Preview {
     ProfileView()

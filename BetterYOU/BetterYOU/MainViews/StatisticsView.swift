@@ -9,8 +9,8 @@ import SwiftUI
 
 struct StatisticsView: View {
     
-    @State private var progressStep = Double(BetterWork().stepsAmount) / 10000
-    @State private var progressTrainings = Double(BetterWork().trainingsAmount) / 5
+    @State private var progressStep = Double(BetterWork().stepsAmount) / Double(ProfileView().goalStep)!
+    @State private var progressTrainings = Double(BetterWork().trainingsAmount) / Double(ProfileView().goalTrain)!
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -46,12 +46,12 @@ struct StatisticsView: View {
                 
                 
             }
-            .navigationTitle("Statistics")
+            .navigationTitle("Statistics 📊")
             /* служит для кнопки закрытия вью
              
-            .navigationBarItems(trailing: Button("Done") {
-                dismiss()
-            }) */
+             .navigationBarItems(trailing: Button("Done") {
+             dismiss()
+             }) */
             .scrollContentBackground(.hidden)
             .background(Color.stat)
         }

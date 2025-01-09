@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct BetterEat: View {
-
-    @State private var proteins: String = ""
-    @State private var fats: String = ""
-    @State private var carbohydrates: String = ""
-    @State private var goalAmount = 2000
-    @State private var kсalAmount = 2000
-    @State private var selectedUnit = ProfileView().selectedUnitF
     
+    @State private var proteins = ""
+    @State private var fats = ""
+    @State private var carbohydrates = ""
+    @State private var goalFood = Int(ProfileView().goalFood)
+    @State private var kсalAmount = 2000
+    @State private var selectedUnit = SettingsView().selectedUnitF
+    @State private var statProteins = 0
+    @State private var statFats = 0
+    @State private var statCarbohydrates = 0
+
     var body: some View {
         NavigationStack {
             Form {
                 Section {
                     HStack {
-                        Text("Your goal for today is \(goalAmount.formatted()) kcal")
+                        Text("Your goal for today is \(goalFood ?? 0) kcal")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(Color(.text))
@@ -30,68 +33,96 @@ struct BetterEat: View {
                     }
                 }
                 .listRowBackground(Color.clear)
+                .listSectionSpacing(-10)
                 
                 Section {
-                    HStack {
-                        Image(systemName: "clock")
-                        Stepper("\(kсalAmount.formatted()) kсal", value: $kсalAmount, in: 1000...5000, step: 100)
+                    VStack {
+                        HStack {
+                            Image(systemName: "flame.fill")
+                            Stepper("\(kсalAmount.formatted()) kсal", value: $kсalAmount, in: 1000...5000, step: 100)
+                        }
+                        if kсalAmount == goalFood ?? 0 {
+                            Text("Well done! Goal for today achieved 🥳")
+                                .multilineTextAlignment(.center)
+                        } else if kсalAmount < goalFood ?? 0 {
+                            Text("You need to eat more to achieve the goal 😑")
+                                .multilineTextAlignment(.center)
+                        } else {
+                            Text("You need to eat less to achieve the goal 😅")
+                                .multilineTextAlignment(.center)
+                        }
                     }
                 }header: {
                     Text("Amount of kcal today")
                         .foregroundStyle(Color(.text))
                 }
-
                 
                 Section {
-                    VStack {
-                        HStack {
-                            Text("Proteins:")
-                            TextField("enter amount", text: $proteins)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.numberPad)
-                            if selectedUnit == 0 {
-                                Text("g")
-                            } else {
-                                Text("p")
-                            }
-                            Button {
-                                hideKeyboard()
-                            } label: {
-                                Image(systemName:"checkmark.circle")
-                            }
+                    
+                }
+                
+                Section {
+                    HStack(alignment: .center) {
+                        Image(systemName:"fish")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                        Text("Proteins:")
+                        TextField("0", text: $proteins)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                        if selectedUnit == 0 {
+                            Text("g")
+                        } else {
+                            Text("p")
                         }
-                        HStack {
-                            Text("Fats:")
-                            TextField("enter amount", text: $fats)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.numberPad)
-                            if selectedUnit == 0 {
-                                Text("g")
-                            } else {
-                                Text("p")
-                            }
-                            Button {
-                                hideKeyboard()
-                            } label: {
-                                Image(systemName:"checkmark.circle")
-                            }
+                        Button {
+                            tapSave()
+                            hideKeyboard()
+                        } label: {
+                            Image(systemName:"checkmark.circle")
                         }
-                        HStack {
-                            Text("Carbohydrates:")
-                            TextField("enter amount", text: $carbohydrates)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.numberPad)
-                            if selectedUnit == 0 {
-                                Text("g")
-                            } else {
-                                Text("p")
-                            }
-                            Button {
-                                hideKeyboard()
-                            } label: {
-                                Image(systemName:"checkmark.circle")
-                            }
-                            
+                    }
+                    HStack {
+                        Image(systemName:"drop")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                        Text("Fats:")
+                        TextField("0", text: $fats)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                        if selectedUnit == 0 {
+                            Text("g")
+                        } else {
+                            Text("p")
+                        }
+                        Button {
+                            tapSave()
+                            hideKeyboard()
+                        } label: {
+                            Image(systemName:"checkmark.circle")
+                        }
+                    }
+                    HStack {
+                        Image(systemName:"cube")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                        Text("Carbohydrates:")
+                        TextField("0", text: $carbohydrates)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.numberPad)
+                        if selectedUnit == 0 {
+                            Text("g")
+                        } else {
+                            Text("p")
+                        }
+                        Button {
+                            tapSave()
+                            hideKeyboard()
+                        } label: {
+                            Image(systemName:"checkmark.circle")
                         }
                     }
                 } header: {
@@ -100,31 +131,40 @@ struct BetterEat: View {
                 }
                 
                 Section {
-                    if kсalAmount == 2000 {
-                        Text("Well done! Goal for today achieved 🥳")
-                        //.frame(width: 400,height: 48, alignment: .center)
-                        //.font(.system(size: 20))
-                        
-                    } else if kсalAmount < 2000{
-                        Text("You need to eat more to achieve the goal 😑")
-                            //.font(.system(size: 20))
-                        //.padding(10)
-                    } else {
-                        Text("You need to eat less to achieve the goal 😅")
-                            //.font(.system(size: 20))
-                        //.padding(10)
-                    }
+                    Text("Proteins intake: \(statProteins)")
+                    Text("Fats intake: \(statFats)")
+                    Text("Carbohydrates intake: \(statCarbohydrates)")
                 } header: {
                     Text("Results")
                         .foregroundStyle(Color(.text))
                 }
-                
             }
             .navigationTitle("Better Eat 🥗")
             //.navigationBarTitleDisplayMode(.inline)
             .scrollContentBackground(.hidden)
             .background(Color.eat)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        statProteins = 0
+                        statFats = 0
+                        statCarbohydrates = 0
+                    }) {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                    }
+                }
+            }
         }
+    }
+    
+    func tapSave() {
+        statProteins += Int(proteins) ?? 0
+        statFats += Int(fats) ?? 0
+        statCarbohydrates += Int(carbohydrates) ?? 0
+        proteins = ""
+        fats = ""
+        carbohydrates = ""
+        
     }
 }
 

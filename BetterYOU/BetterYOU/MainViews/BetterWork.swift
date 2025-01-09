@@ -12,14 +12,13 @@ struct BetterWork: View {
     @State var stepsAmount = 9000
     @State var trainingsAmount = 4
     @State private var showingStat = false
-    @State private var goalAmount = 5
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
                     HStack {
-                        Text("Your goal for week is \(goalAmount) training")
+                        Text("Your goal for week is \(ProfileView().goalTrain) training")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(Color(.text))
@@ -28,6 +27,7 @@ struct BetterWork: View {
                     }
                 }
                 .listRowBackground(Color.clear)
+                .listSectionSpacing(-10)
                 
                 Section {
                     HStack {
@@ -73,26 +73,26 @@ struct BetterWork: View {
             
             .navigationTitle("Better Work 🏋🏽‍♂️")
             /*.navigationBarItems(trailing: Button() {
-                showingStat.toggle()
-            } label: {
-                Image(systemName: "align.horizontal.right.fill")
-            }
-            )
-            .sheet(isPresented: $showingStat) {
-                StatisticsView()
-            }         этот алгоритм открывает вью пушем поверх вью Better Work */
+             showingStat.toggle()
+             } label: {
+             Image(systemName: "align.horizontal.right.fill")
+             }
+             )
+             .sheet(isPresented: $showingStat) {
+             StatisticsView()
+             }         этот алгоритм открывает вью пушем поверх вью Better Work */
             
             // этот алгоритм открывает вью в новом окне с добавлением кнопки "назад"
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: StatisticsView()) {
-                            Image(systemName: "align.horizontal.right.fill")
-                        }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: StatisticsView()) {
+                        Image(systemName: "chart.bar.fill")
                     }
                 }
+            }
             //.navigationBarTitleDisplayMode(.inline)
-                .scrollContentBackground(.hidden)
-                .background(Color.work)
+            .scrollContentBackground(.hidden)
+            .background(Color.work)
         }
     }
 }

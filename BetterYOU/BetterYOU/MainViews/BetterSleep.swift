@@ -5,18 +5,18 @@
 //  Created by Сухарик on 22.11.2024.
 //
 
+import CoreML
 import SwiftUI
 
 struct BetterSleep: View {
     
     @State private var wakeUp = defaultWakeTime
-    @State private var sleepAmount = 8.0
-    @State private var coffeeAmount = 1
-    @State private var workAmount = 1
+    @State private var sleepAmount = 9.0
+    @State private var coffeeAmount = 0
+    @State private var workAmount = 0
     
     @State private var bedtimeText = ""
     @State private var showingAlert = false
-    @State private var goalAmount = 7
     
     static var defaultWakeTime: Date {
         var components = DateComponents()
@@ -30,7 +30,7 @@ struct BetterSleep: View {
             Form {
                 Section {
                     HStack {
-                        Text("Your goal for today is \(goalAmount.formatted()) hours of sleep")
+                        Text("Your goal for today is \(ProfileView().goalSleep) hours of sleep")
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundStyle(Color(.text))
@@ -39,6 +39,7 @@ struct BetterSleep: View {
                     }
                 }
                 .listRowBackground(Color.clear)
+                .listSectionSpacing(-10)
                 
                 Section {
                     HStack {
@@ -52,7 +53,7 @@ struct BetterSleep: View {
                 
                 Section {
                     HStack {
-                        Image(systemName: "clock")
+                        Image(systemName: "clock.fill")
                         Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 6...12, step: 0.5)
                     }
                 }header: {
@@ -62,9 +63,9 @@ struct BetterSleep: View {
                 
                 Section {
                     HStack {
-                        Image(systemName: "cup.and.saucer")
+                        Image(systemName: "cup.and.saucer.fill")
                         Picker("\(coffeeAmount) cup", selection: $coffeeAmount) {
-                            ForEach(1...5, id: \.self) {
+                            ForEach(0...5, id: \.self) {
                                 Text("\($0) cup")
                             }
                         }
@@ -77,12 +78,12 @@ struct BetterSleep: View {
                 Section {
                     HStack {
                         Image(systemName: "pencil.and.outline")
-//                        Picker("\(workAmount) hour", selection: $workAmount) {
-//                            ForEach(1...12, id: \.self) {
-//                                Text("\($0) hour")
-//                            }
-//                        }
-                        Stepper("\(workAmount) hour", value: $workAmount, in: 1...12, step: 1)
+                        //                        Picker("\(workAmount) hour", selection: $workAmount) {
+                        //                            ForEach(1...12, id: \.self) {
+                        //                                Text("\($0) hour")
+                        //                            }
+                        //                        }
+                        Stepper("\(workAmount) hour", value: $workAmount, in: 0...12, step: 1)
                     }
                 } header: {
                     Text("Daily workload")
@@ -107,17 +108,24 @@ struct BetterSleep: View {
     }
     
     func calculateBedtime() -> String {
-        
+        do {
+            let config = MLModelConfiguration()
+            let model = try SleepCalculator(configuration: config)
+            
             let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
             let hour = (components.hour ?? 0) * 60 * 60
             let minute = (components.minute ?? 0) * 60
             
-            let prediction = Double(hour + minute) + sleepAmount * 5 + Double(coffeeAmount) * 15
+            let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount), workHours: Double(workAmount))
             
-            let sleepTime = wakeUp - prediction
+            let sleepTime = wakeUp - prediction.actualSleep
             
             return sleepTime.formatted(date: .omitted, time: .shortened)
+        } catch {
+            return "Error"
+        }
     }
+    
 }
 
 #Preview {
