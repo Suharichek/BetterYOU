@@ -22,7 +22,7 @@ struct ActivityRing: View {
                 .foregroundStyle(ringColor)
                 .rotationEffect(.degrees(270.0))
                 .animation(.linear(duration: 0.5), value: progress)
-            Text(String(format: "%.0f%%", min(progress, 1.0) * 100.0))
+            Text(String(format: "%.0f%%", progress * 100.0))
                 .font(.largeTitle)
                 .bold()
                 .foregroundStyle(ringColor)
@@ -33,3 +33,7 @@ struct ActivityRing: View {
 #Preview {
     ActivityRing(progress: 100, ringColor: .red)
 }
+
+
+
+
