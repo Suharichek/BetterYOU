@@ -1,4 +1,8 @@
-# BetterYOU
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/617ecd11-11ef-4553-a905-c2ac338de911" alt="App Icon" width="100"/>
+</p>
+
+<h1 align="center">BetterYOU</h1>
 
 **BetterYOU** — это комплексное приложение для поддержания здорового образа жизни и достижения личных целей. Оно объединяет инструменты для анализа сна, подсчета тренировок, шагов, калорий и настройки индивидуальных параметров, предоставляя пользователям персонализированный опыт.
 
@@ -71,26 +75,29 @@
 
 ## Скриншоты
 
+Иконка приложения
+
+
 ### Онбординг
 1 | 2 |  3
 :-------------------------:|:-------------------------:|:-------------------------:
 <img src="https://github.com/user-attachments/assets/ead6d2b8-e55b-4cdb-9d94-84e45b51776b" width="300" heigth="200" />| <img src="https://github.com/user-attachments/assets/bdf8bfab-e65d-4bf5-9c11-2a21bb19d5e7" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/102eb319-f659-4249-bdc2-247baca192b5" width="300" heigth="200" />
 
 ### Вход/Регистрация
-4 | Вход |  Регистрация
+4 | Регистрация | Вход
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/user-attachments/assets/aa71d929-a6ae-42e3-a80f-272e3bb41e98" width="300" heigth="200" />| <img src="https://github.com/user-attachments/assets/df76e6d6-0d28-4f22-a04b-42cee3dad3a5" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/197e35cb-8c59-4fa7-8617-16c1f1f1a862" width="300" heigth="200" />
+<img src="https://github.com/user-attachments/assets/aa71d929-a6ae-42e3-a80f-272e3bb41e98" width="300" heigth="200" />| <img src="https://github.com/user-attachments/assets/1c156c5b-2398-4fc9-ad53-73f01e132d29" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/92b2ca3c-d305-4df5-b57d-ad4a89d7d351" width="300" heigth="200" />
 
 
 ### Светлая тема
 Анализ сна |  Тренировки | Статистика
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/user-attachments/assets/f04d5fe2-7c46-47e1-9a3b-3872bd1c0260" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/507e53e1-931b-49e9-91db-80c72c8e8769" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/642517b1-fa29-4660-90c3-ffd18550d8be" width="300" heigth="200" />
+<img src="https://github.com/user-attachments/assets/a9ce0cad-fd34-4a84-9bae-ae60e017a4bf" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/507e53e1-931b-49e9-91db-80c72c8e8769" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/642517b1-fa29-4660-90c3-ffd18550d8be" width="300" heigth="200" />
 
 ### Темная тема
 Подсчет калорий |  Профиль | Настройки
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/user-attachments/assets/0b41f056-07d2-4641-be35-275cefec673c" width="300" heigth="200" />  | <img src="https://github.com/user-attachments/assets/b1fe7110-bbd6-47af-b104-852ec1937ed2" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/14941bee-6043-45b2-a614-57b7ba6169ef" width="300" heigth="200" /> 
+<img src="https://github.com/user-attachments/assets/0b41f056-07d2-4641-be35-275cefec673c" width="300" heigth="200" />  | <img src="https://github.com/user-attachments/assets/e2eaf1f4-480d-438d-bb12-b9a9c3bbf215" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/f6dd1350-fc59-4903-82b8-8816893b26ee" width="300" heigth="200" /> 
 
 ---
 
