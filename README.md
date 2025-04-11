@@ -81,23 +81,23 @@
 ### Онбординг
 1 | 2 |  3
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/user-attachments/assets/ead6d2b8-e55b-4cdb-9d94-84e45b51776b" width="300" heigth="200" />| <img src="https://github.com/user-attachments/assets/bdf8bfab-e65d-4bf5-9c11-2a21bb19d5e7" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/102eb319-f659-4249-bdc2-247baca192b5" width="300" heigth="200" />
+<img src="https://github.com/user-attachments/assets/ead6d2b8-e55b-4cdb-9d94-84e45b51776b" width="300" />| <img src="https://github.com/user-attachments/assets/bdf8bfab-e65d-4bf5-9c11-2a21bb19d5e7" width="300" /> | <img src="https://github.com/user-attachments/assets/102eb319-f659-4249-bdc2-247baca192b5" width="300" />
 
 ### Вход/Регистрация
 4 | Регистрация | Вход
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/user-attachments/assets/aa71d929-a6ae-42e3-a80f-272e3bb41e98" width="300" heigth="200" />| <img src="https://github.com/user-attachments/assets/1c156c5b-2398-4fc9-ad53-73f01e132d29" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/92b2ca3c-d305-4df5-b57d-ad4a89d7d351" width="300" heigth="200" />
+<img src="https://github.com/user-attachments/assets/aa71d929-a6ae-42e3-a80f-272e3bb41e98" width="300" />| <img src="https://github.com/user-attachments/assets/1c156c5b-2398-4fc9-ad53-73f01e132d29" width="300" /> | <img src="https://github.com/user-attachments/assets/92b2ca3c-d305-4df5-b57d-ad4a89d7d351" width="300" />
 
 
 ### Светлая тема
 Анализ сна |  Тренировки | Статистика
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/user-attachments/assets/a9ce0cad-fd34-4a84-9bae-ae60e017a4bf" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/507e53e1-931b-49e9-91db-80c72c8e8769" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/642517b1-fa29-4660-90c3-ffd18550d8be" width="300" heigth="200" />
+<img src="https://github.com/user-attachments/assets/a9ce0cad-fd34-4a84-9bae-ae60e017a4bf" width="300" /> | <img src="https://github.com/user-attachments/assets/507e53e1-931b-49e9-91db-80c72c8e8769" width="300" /> | <img src="https://github.com/user-attachments/assets/642517b1-fa29-4660-90c3-ffd18550d8be" width="300" />
 
 ### Темная тема
 Подсчет калорий |  Профиль | Настройки
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://github.com/user-attachments/assets/0b41f056-07d2-4641-be35-275cefec673c" width="300" heigth="200" />  | <img src="https://github.com/user-attachments/assets/e2eaf1f4-480d-438d-bb12-b9a9c3bbf215" width="300" heigth="200" /> | <img src="https://github.com/user-attachments/assets/f6dd1350-fc59-4903-82b8-8816893b26ee" width="300" heigth="200" /> 
+<img src="https://github.com/user-attachments/assets/0b41f056-07d2-4641-be35-275cefec673c" width="300" />  | <img src="https://github.com/user-attachments/assets/e2eaf1f4-480d-438d-bb12-b9a9c3bbf215" width="300" /> | <img src="https://github.com/user-attachments/assets/f6dd1350-fc59-4903-82b8-8816893b26ee" width="300" /> 
 
 ---
 
